@@ -16,7 +16,6 @@ export const YjsProvider = React.memo(function YjsProvider(
 	const { roomId, getProvider } = props;
 	const context = React.useMemo(() => {
 		const ydoc = new Y.Doc({ gc: true });
-		console.log('ydoc', ydoc);
 		const provider = getProvider({ ydoc, roomId });
 		const undoManager = new Y.UndoManager([], { doc: ydoc });
 		return { ydoc, provider, undoManager, roomId };
