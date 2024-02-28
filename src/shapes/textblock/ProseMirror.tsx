@@ -35,8 +35,11 @@ export const ProseMirror = React.memo((props: ProseMirrorProps) => {
 		},
 		[plugins]
 	);
-	React.useEffect(() => {
-		if (autoFocus) window.requestAnimationFrame(() => viewRef.current?.focus());
+	React.useLayoutEffect(() => {
+		if (autoFocus) {
+			viewRef.current?.focus();
+			window.requestAnimationFrame(() => viewRef.current?.focus());
+		}
 	}, [autoFocus]);
 	React.useEffect(() => {
 		viewRef.current?.setProps({ editable: () => editable });

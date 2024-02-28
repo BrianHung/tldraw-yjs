@@ -17,7 +17,7 @@ export const TextBlock = React.memo((props: { id: string; autoFocus: boolean }) 
 		<ProseMirror
 			plugins={collab}
 			autoFocus={autoFocus}
-			editable={autoFocus}
+			editable={true}
 		/>
 	);
 });

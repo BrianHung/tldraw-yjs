@@ -29,8 +29,11 @@ export const CodeMirror = React.memo((props: CodeMirrorProps) => {
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 		[extensions]
 	);
-	React.useEffect(() => {
-		if (autoFocus) window.requestAnimationFrame(() => viewRef.current?.focus());
+	React.useLayoutEffect(() => {
+		if (autoFocus) {
+			viewRef.current?.focus();
+			window.requestAnimationFrame(() => viewRef.current?.focus());
+		}
 	}, [autoFocus]);
 	React.useEffect(() => {
 		viewRef.current?.dispatch({ effects: editableCompartment.reconfigure(EditorView.editable.of(editable)) });

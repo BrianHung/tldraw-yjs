@@ -29,7 +29,7 @@ export const CodeBlock = React.memo((props: { id: string; autoFocus: boolean }) 
 			defaultDoc={defaultDoc}
 			extensions={collab}
 			autoFocus={autoFocus}
-			editable={autoFocus}
+			editable={true}
 		/>
 	);
 });
